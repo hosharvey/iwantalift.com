@@ -1,4 +1,7 @@
 <?php
+
+//establishes a connection to the database
+
 $servername = "localhost";
 $database = "locationsite";
 $username = "hosharvey";

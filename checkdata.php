@@ -1,4 +1,7 @@
 <?php
+
+//retrieves data from the database
+
 require_once ("connection.php");
 $result = mysqli_query($conn, "SELECT * FROM locationinput");
 

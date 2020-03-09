@@ -1,4 +1,7 @@
 <html>
+
+//admin page for editing and deleting data.
+
 <center>
   <h3>Current Journeys</h3>
       <div id="footer" class="footer">
@@ -15,7 +18,7 @@ echo "<table border='1'>
 <th>location_ID</th>
 <th>location</th>
 <th>time</th>
-<th>delete</th>
+<th>action</th>
 </tr>";
 
 while($row = mysqli_fetch_array($result))
@@ -25,10 +28,10 @@ echo "<td>" . $row['location_ID'] . "</td>";
 echo "<td>" . $row['inputoflocation'] . "</td>";
 echo "<td>" . $row['inputoftime'] . "</td>";
 
-//echo "<td><a href='delete.php?id=".$row['$result']."'>Delete</a></td>";
-//echo "<td><a href='delete.php'id=$row['location_ID']>'>Delete</a></td>";
-//echo "<td><a href='delete.php'id='location_ID'>Delete</a></td><tr>";
-echo "<td><a href='delete.php?id=$row[location_ID]'>Delete</a></td><tr>";
+
+echo "<td><a href='edit.php?id=$row[location_ID]'><button>edit</button></a></td>";
+echo "<td><a href='delete.php?id=$row[location_ID]'><button>delete</button></a></td>";
+
 
 echo "</tr>";
 }

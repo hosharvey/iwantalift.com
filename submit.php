@@ -1,4 +1,7 @@
 <?php
+
+//for inputting a location into the database
+
 require_once ("connection.php");
 $location = $_POST['inputoflocation'];
 $time = $_POST['time'];

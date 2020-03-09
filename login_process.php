@@ -1,5 +1,7 @@
 <?php
 
+//checks whether the username and password matches with the "users" table
+
 SESSION_START();
 
 require_once ("connection.php");

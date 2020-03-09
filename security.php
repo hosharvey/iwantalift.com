@@ -1,4 +1,7 @@
 <?php
+
+//requires the user to have a username and password present in the "users" table.
+
 include("connection.php");
 SESSION_START();
 
