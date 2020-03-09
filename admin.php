@@ -1,6 +1,6 @@
 <html>
 
-//admin page for editing and deleting data.
+<! –– admin page for editing and deleting data. -->
 
 <center>
   <h3>Current Journeys</h3>
