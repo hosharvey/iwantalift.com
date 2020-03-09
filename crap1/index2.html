@@ -1,0 +1,182 @@
+<html>
+<title>Lift</title>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: black;
+  text-align: center;
+}
+/* Style tab links */
+.tablink {
+  background-color: #555;
+  color: black;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 20%;
+  transition: 0.3s; /*Fades in on hover*/
+}
+
+.tablink:hover {
+  background-color: white;
+  color: black
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: black;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+#Home {background-color: white;}
+#Request_Location {background-color: white;}
+#View_Transport {background-color: white;}
+#Contact_Us {background-color: white;}
+</style>
+</head>
+<body>
+</div>
+</div>
+<button class="tablink" onclick="openPage('Home', this, 'white')" id="defaultOpen">Home</button>
+<button class="tablink" onclick="openPage('Request_Location', this, 'white')">RequestLocation</button>
+<button class="tablink" onclick="openPage('View_Transport', this, 'white')">View Transport</button>
+<button class="tablink" onclick="openPage('Contact_Us', this, 'white')">Contact Us</button>
+<button class="tablink" onclick="openPage('Login', this, 'white')">Login</button>
+
+<div id="Home" class="tabcontent">
+<center>
+  <h3>What do we do?</h3>
+  <body>
+  IWantALift.com is aiming for a greener future. If you travel the same commute regularly,
+  you could save someone else from using their car.
+  </body>
+    <div id="footer" class="footer">
+		<p>Content is &copy; Henry Harvey.</p>
+		<p>This page is valid HTML5.</p>
+	</div>
+</center>
+</div>
+
+<div id="Request_Location" class="tabcontent">
+<center>
+  <h3>Request Location</h3>
+<h1>The Future Of Hitchhiking</h1>
+<body>Please input a location</body>
+<form action="submit.php" method="POST">
+<input type="text" name="inputoflocation">
+<br>
+<body>Please input a time of departure</body>
+<br>
+<form action="submit.php" method="POST">
+<input type="time" id="time" name="time"
+       min="06:00" max="19:00" required>
+
+<small>Hours are 6am to 7pm</small>
+
+<p><button type="submit"> Submit</button></p>
+</form>
+    <div id="footer" class="footer">
+		<p>Content is &copy; Henry Harvey.</p>
+		<p>This page is valid HTML5.</p>
+	</div>
+</center>
+
+</div>
+<div id="View_Transport" class="tabcontent">
+<center>
+  <h3>Current Journeys</h3>
+      <div id="footer" class="footer">
+		<p>Content is &copy; Henry Harvey.</p>
+		<p>This page is valid HTML5.</p>
+	</div>
+<?php
+require_once ("connection.php");
+$result = mysqli_query($conn, "SELECT * FROM locationinput");
+
+echo "<table border='1'>
+<tr>
+<th>locationinput</th>
+<th>inputoftime</th>
+</tr>";
+
+while($row = mysqli_fetch_array($result))
+{
+echo "<tr>";
+echo "<td>" . $row['inputoflocation'] . "</td>";
+echo "<td>" . $row['inputoftime'] . "</td>";
+echo "</tr>";
+}
+echo "</table>";
+
+mysqli_close($conn);
+?>
+</center>
+</div>
+
+<div id="Contact_Us" class="tabcontent">
+<center>
+<h3>Drop Us An Email</h3>
+  <p>hosharvey@gmail.com</p>
+</center>
+</div>
+    <div id="footer" class="footer">
+		<p>Content is &copy; Henry Harvey.</p>
+		<p>This page is valid HTML5.</p>
+	</div>
+
+<div id="Login" class="tabcontent">
+<a id="target"></a>
+<center>
+
+<body>
+<form method="post" action="login_process.php">
+Enter your username:
+<input type="text" name="username">
+<br><br>
+Enter your password:
+<input type="password" name="password">
+<br><br>
+<input type="submit" value="Submit">
+</form>
+</body>
+</div>
+
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+</body>
+</html>

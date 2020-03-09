@@ -1,0 +1,13 @@
+body {
+  background-image: url("images/forest.jpg");
+}
+
+footer {
+    position: absolute;
+    top: 800px;
+    clear: left;
+    background: #ccc;
+}
+footer p {
+    margin: 0;
+}
